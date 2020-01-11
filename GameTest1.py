@@ -1,12 +1,12 @@
 import random
 
-import Pygine.PygineMain as Pygine
-from Pygine import Globals, Input
-from Pygine.modules import Vectors
-from Pygine.modules.Components.BaseComponent import BaseComponent
-from Pygine.modules.GameObject import GameObject
-from Pygine.modules.Image import Image
-from Pygine.modules.Scene import Scene
+import PyEntity.PyEntityMain as PyEntity
+from PyEntity import Globals, Input
+from PyEntity.modules import Vectors
+from PyEntity.modules.Components.BaseComponent import BaseComponent
+from PyEntity.modules.GameObject import GameObject
+from PyEntity.modules.Image import Image
+from PyEntity.modules.Scene import Scene
 
 class PlayerController(BaseComponent):
     def __init__(self):
@@ -24,7 +24,7 @@ class PlayerController(BaseComponent):
                 if(event.key == "d"):
                     self.parent.position.x += 3
 
-Pygine.RegisterComponent(PlayerController())
+PyEntity.RegisterComponent(PlayerController())
 
 testScene = Scene("Testing",False)
 
@@ -33,32 +33,33 @@ for x in range(-25,25):
     for y in range(-25,25):
         groundTile = GameObject("GTile")
         groundTile.AddComponent("SpriteRenderer")
-        if(Vectors.Distance2D(Pygine.Vector2(x,y), Pygine.Vector2(0, 0)) <= worldSize):
+        groundTile.GetComponent("SpriteRenderer").sortingLayer = -5
+        if(Vectors.Distance2D(PyEntity.Vector2(x,y), PyEntity.Vector2(0, 0)) <= worldSize):
             groundTile.GetComponent("SpriteRenderer").sprite = Image(Globals.engineLocation+"\\assets\\Examples\\grass.png")
-        elif(Vectors.Distance2D(Pygine.Vector2(x,y), Pygine.Vector2(0, 0)) <= worldSize+2):
+        elif(Vectors.Distance2D(PyEntity.Vector2(x,y), PyEntity.Vector2(0, 0)) <= worldSize+2):
             groundTile.GetComponent("SpriteRenderer").sprite = Image(Globals.engineLocation+"\\assets\\Examples\\sand.png")
         else:
             groundTile.GetComponent("SpriteRenderer").sprite = Image(Globals.engineLocation + "\\assets\\Examples\\water.png")
-        groundTile.position = Pygine.Vector2(x * 32, y * 32)
+        groundTile.position = PyEntity.Vector2(x * 32, y * 32)
         testScene.AddObject(groundTile)
 
 spriteTest = GameObject("Testing")
 spriteTest.AddComponent("SpriteRenderer")
 spriteTest.GetComponent("SpriteRenderer").sprite = Globals.errorImage
-spriteTest.position = Pygine.Vector2(50, 100)
+spriteTest.position = PyEntity.Vector2(50, 100)
 spriteTest.AddComponent("PlayerController")
 spriteTest.AddComponent("Camera")
 testScene.AddObject(spriteTest)
 spriteTest.GetComponent("Camera").dev = True
 testScene.defaultCamera = spriteTest
 
-gameData = Pygine.FullGameData()
+gameData = PyEntity.FullGameData()
 gameData.scenes.append(testScene)
 gameData.defaultScene = 0
 gameData.name = "TestGame1"
-gameData.screenSize = Pygine.Vector2(800, 600)
+gameData.screenSize = PyEntity.Vector2(800, 600)
 
-Pygine.LaunchGame(gameData)
+PyEntity.LaunchGame(gameData)
 
 
 
