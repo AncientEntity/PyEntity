@@ -3,6 +3,7 @@ import sys, os
 from PyEntity.modules.Image import Image
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 import random
 import time
@@ -10,6 +11,7 @@ from PyEntity.modules.GameObject import GameObject
 from PyEntity import Globals, Input
 from PyEntity.modules.Scene import *
 from PyEntity.modules.Vectors import *
+from PyEntity.modules.RenderingManager import *
 import PyEntity.Input
 
 Globals.Init()
@@ -27,18 +29,16 @@ def LaunchGame(gameData):
     gameRunning = True
     Globals.screenSize = gameData.screenSize
     Globals.screen = pygame.display.set_mode((Globals.screenSize.x, Globals.screenSize.y))
-    gameTime = 0
-    deltaTime = 0
-    frames = 0
     fCountStart = 0
     while gameRunning:
-        frames+=1
+        Globals.frames+=1
         frameStartTime = time.time()
         GatherInputs()
         DoGameObjectFunctions()
         RenderEngine(Globals.screen)
-        deltaTime = time.time() - frameStartTime
-        gameTime += deltaTime
+        Globals.deltaTime = time.time() - frameStartTime
+        Globals.gameTime += Globals.deltaTime
+        #print(1.0 / Globals.deltaTime)
 
 class FullGameData:
     def __init__(self):
@@ -84,23 +84,6 @@ def DoGameObjectFunctions():
                 component.doneStart = True
             component.Update()
 
-def RenderEngine(screen):
-    screen.fill((255,255,255))
-    offset = Globals.mainCamera.position
-    foundRenderers = []
-    for obj in Globals.objects:
-        if obj.GetComponent("SpriteRenderer") != None:
-            foundRenderers.append(obj)
-    foundRenderers.sort(key=lambda x: x.GetComponent("SpriteRenderer").sortingLayer)
-    for obj in foundRenderers:
-        imageDimensions = Vector2(0,0)
-        imageDimensions.x = Globals.loadedImages[obj.GetComponent("SpriteRenderer").sprite].get_width()
-        imageDimensions.y = Globals.loadedImages[obj.GetComponent("SpriteRenderer").sprite].get_height()
-        blitPos = (obj.position.x-offset.x+(Globals.screenSize.x / 2)-(imageDimensions.x/2), obj.position.y-offset.y+(Globals.screenSize.y / 2)-(imageDimensions.y/2))
-        if((blitPos[0] > -imageDimensions.x and blitPos[0] < Globals.screenSize.x) and (blitPos[1] > -imageDimensions.y and blitPos[1] < Globals.screenSize.y)):
-            screen.blit(Globals.loadedImages[obj.GetComponent("SpriteRenderer").sprite], blitPos)
-        # Make it only render objects on screen
-    pygame.display.update()
 
 
 def RegisterComponent(component):
@@ -111,7 +94,7 @@ def Instantiate(obj):
     Globals.objects.append(new)
     return new
 
-def ByTag(tag,multi=False):
+def FindGameObjectByTag(tag,multi=False):
     all = []
     for obj in Globals.objects:
         if(obj.tag == tag):
@@ -123,7 +106,7 @@ def ByTag(tag,multi=False):
         return None
     else:
         return all
-def ByName(name,multi=False):
+def FindGameObjectByName(name,multi=False):
     all = []
     for obj in Globals.objects:
         if(obj.name == name):
@@ -141,7 +124,9 @@ def FindComponent(type):
             if(comp.name == type):
                 return comp
     return None
-def All():
+def AllGameObjects():
     return Globals.objects
 
-
+def QuitGame():
+    pygame.quit()
+    exit(0)

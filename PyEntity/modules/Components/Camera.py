@@ -1,6 +1,7 @@
 from PyEntity import Globals
 from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity.modules.Vectors import Vector2
+from ...PyEntityMain import *
 
 class Camera(BaseComponent):
     def __init__(self):
@@ -18,3 +19,7 @@ class Camera(BaseComponent):
                     self.parent.position.x -= 5
                 elif (event.key == "l"):
                     self.parent.position.x += 5
+    def ScreenToWorldPoint(self,screenPoint):
+        cam = FindGameObjectByTag("DefaultCamera")
+        camPos = [cam.position[0], cam.position[1]]
+        return ([screenPoint[0] + camPos[0], screenPoint[1] + camPos[1]])

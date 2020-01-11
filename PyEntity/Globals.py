@@ -1,11 +1,13 @@
 from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity.modules.Components.Camera import Camera
-from PyEntity.modules.Components.SpriteRenderer import SpriteRenderer
+from PyEntity.modules.Components.Renderer2D import Renderer2D
+from PyEntity.modules.Components.UIText import UIText
 from PyEntity.modules.Vectors import Vector2
 
 masterComponents = []
 screen = None
+renderRequests = []
 screenSize = Vector2(0,0)
 scenes = []
 objects = []
@@ -14,8 +16,13 @@ inputEvents = []
 mousePosition = [0,0]
 engineLocation = ""
 loadedImages = []
+loadedImageLocations = []
 gravity = -0.25
 fpsMax = 60.0
+
+gameTime = 0
+deltaTime = 0
+frames = 0
 
 errorImage = ""
 
@@ -33,6 +40,13 @@ def Init():
     global gravity
     global fpsMax
     global screenSize
+    global loadedImageLocations
+    global frames
+    global deltaTime
+    global gameTime
+    frames = 0
+    deltaTime = 0
+    gameTime = 0
     screenSize = screenSize
     masterComponents = []
     screen = None
@@ -47,6 +61,7 @@ def Init():
     engineLocation = ""
     gravity = gravity
     masterComponents.append(BaseComponent())
-    masterComponents.append(SpriteRenderer(None))
+    masterComponents.append(Renderer2D(None))
     masterComponents.append(Camera())
+    masterComponents.append(UIText())
 

@@ -6,7 +6,7 @@ class GameObject:
         self.active = True
         self.name = name
         self.tag = ""
-        self.position = Vector2()
+        self.position = Vector2(0,0)
         self.components = []
 
     def AddComponent(self,component):
@@ -16,6 +16,7 @@ class GameObject:
                 new = comp.CreateNew()
                 new.parent = self
                 self.components.append(new)
+                return
 
     def GetComponent(self,component):
         for comp in self.components:
