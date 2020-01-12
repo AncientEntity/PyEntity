@@ -20,3 +20,5 @@ class BaseComponent:
 
     def Update(self):
         pass
+    def ScaleChange(self,old,new):
+        pass

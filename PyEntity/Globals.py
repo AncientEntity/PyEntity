@@ -3,6 +3,7 @@ from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity.modules.Components.Camera import Camera
 from PyEntity.modules.Components.Renderer2D import Renderer2D
 from PyEntity.modules.Components.UIText import UIText
+from PyEntity.modules.Components.Physics2D import Physics2D
 from PyEntity.modules.Vectors import Vector2
 
 masterComponents = []
@@ -17,7 +18,7 @@ mousePosition = [0,0]
 engineLocation = ""
 loadedImages = []
 loadedImageLocations = []
-gravity = -0.25
+gravity = -0.3
 fpsMax = 60.0
 
 gameTime = 0
@@ -64,4 +65,5 @@ def Init():
     masterComponents.append(Renderer2D(None))
     masterComponents.append(Camera())
     masterComponents.append(UIText())
+    masterComponents.append(Physics2D())
 

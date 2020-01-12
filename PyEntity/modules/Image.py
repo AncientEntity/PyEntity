@@ -20,3 +20,12 @@ def Image(img,override=-1):
     Globals.loadedImageLocations.append(img)
     return len(Globals.loadedImages)-1
 
+
+def ScaleImage(img, newScale):
+    if(isinstance(img,pygame.Surface)):
+        return pygame.transform.scale(img,(img.get_width() * newScale.x,img.get_height() * newScale.y))
+    else:
+        new = Globals.loadedImages[Image(Globals.loadedImageLocations[img])]
+        new = pygame.transform.scale(new,(new.get_width() * newScale.x, new.get_height() * newScale.y))
+        Globals.loadedImages[img] = new
+        return img

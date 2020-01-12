@@ -1,6 +1,7 @@
 from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity import Globals
 from ..RenderingManager import RenderRequest
+from .. import Image
 
 class Renderer2D(BaseComponent):
     def __init__(self, sprite):
@@ -12,3 +13,6 @@ class Renderer2D(BaseComponent):
     def Update(self):
         if(self.sprite != None):
             Globals.renderRequests.append(RenderRequest(self.sprite,self.parent.position,self,self.sortingLayer))
+    def ScaleChange(self,old,new):
+        self.sprite = Image.ScaleImage(self.sprite,new)
+        #print("Scale updated")

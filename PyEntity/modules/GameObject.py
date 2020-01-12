@@ -1,5 +1,6 @@
 from PyEntity import Globals
 from PyEntity.modules.Vectors import Vector2
+import copy
 
 class GameObject:
     def __init__(self, name):
@@ -7,6 +8,8 @@ class GameObject:
         self.name = name
         self.tag = ""
         self.position = Vector2(0,0)
+        self.scale = Vector2(1,1)
+        self.lastScale = Vector2(1,1)
         self.components = []
 
     def AddComponent(self,component):
@@ -17,6 +20,7 @@ class GameObject:
                 new.parent = self
                 self.components.append(new)
                 return
+        raise Exception(component+" is not a valid component. Make sure to register it! using RegisterComponent(component)")
 
     def GetComponent(self,component):
         for comp in self.components:

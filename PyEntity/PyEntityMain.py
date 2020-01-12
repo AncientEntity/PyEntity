@@ -78,11 +78,17 @@ def DoGameObjectFunctions():
     for obj in Globals.objects:
         if obj.active == False:
             continue
+
+        scaleChange = (obj.scale != obj.lastScale)
         for component in obj.components:
             if component.doneStart == False:
                 component.Start()
                 component.doneStart = True
             component.Update()
+            if(scaleChange == True):
+                component.ScaleChange(obj.lastScale,obj.scale)
+        if(scaleChange == True):
+            obj.lastScale = obj.scale
 
 
 

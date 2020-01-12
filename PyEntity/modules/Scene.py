@@ -14,6 +14,7 @@ class Scene:
             defaultCam.AddComponent("Camera")
             defaultCam.tag = "DefaultCamera"
             self.defaultCamera = defaultCam
+            self.objects.append(defaultCam)
             Globals.mainCamera = self.defaultCamera
         # Globals.scenes.append(self)
 
@@ -31,4 +32,5 @@ def LoadScene(scene):
 
     Globals.objects = []
     Globals.objects = copy.deepcopy(scene.objects)
-    Globals.mainCamera = PyEntityMain.FindComponent("Camera").parent
+    if(PyEntityMain.FindComponent("Camera") != None):
+        Globals.mainCamera = PyEntityMain.FindComponent("Camera").parent
