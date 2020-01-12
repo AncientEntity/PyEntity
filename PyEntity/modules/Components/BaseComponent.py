@@ -15,6 +15,12 @@ class BaseComponent:
     def CreateNew(self):
         return copy.copy(self)
 
+    def GetComponent(self,component):
+        for comp in self.parent.components:
+            if(comp.name == component):
+                return comp
+        return None
+
     def Start(self):
         pass
 
@@ -22,3 +28,7 @@ class BaseComponent:
         pass
     def ScaleChange(self,old,new):
         pass
+    def RotationChange(self,old,new):
+        pass
+    def __str__(self):
+        return self.parent.name + "<"+self.name+">"

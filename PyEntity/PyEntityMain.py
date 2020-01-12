@@ -80,6 +80,7 @@ def DoGameObjectFunctions():
             continue
 
         scaleChange = (obj.scale != obj.lastScale)
+        rotationChange = (obj.rotation != obj.lastRotation)
         for component in obj.components:
             if component.doneStart == False:
                 component.Start()
@@ -87,8 +88,12 @@ def DoGameObjectFunctions():
             component.Update()
             if(scaleChange == True):
                 component.ScaleChange(obj.lastScale,obj.scale)
+            if(rotationChange == True):
+                component.RotationChange(obj.lastRotation,obj.rotation)
         if(scaleChange == True):
             obj.lastScale = obj.scale
+        if(rotationChange == True):
+            obj.lastRotation = obj.rotation
 
 
 
@@ -130,6 +135,16 @@ def FindComponent(type):
             if(comp.name == type):
                 return comp
     return None
+
+def FindComponents(type):
+    found = []
+    for obj in Globals.objects:
+        for comp in obj.components:
+            if(comp.name == type):
+                found.append(comp)
+    return found
+
+
 def AllGameObjects():
     return Globals.objects
 

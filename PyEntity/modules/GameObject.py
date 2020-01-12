@@ -9,9 +9,10 @@ class GameObject:
         self.tag = ""
         self.position = Vector2(0,0)
         self.scale = Vector2(1,1)
+        self.rotation = 0
+        self.lastRotation = 0
         self.lastScale = Vector2(1,1)
         self.components = []
-
     def AddComponent(self,component):
         masterComponents = Globals.masterComponents
         for comp in masterComponents:
