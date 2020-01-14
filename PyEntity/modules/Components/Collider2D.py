@@ -32,6 +32,7 @@ class Collider2D(BaseComponent):
         if(self.debug == True):
             self.DoDebug()
     def DoCollisions(self):
+        self.collisionTypes = {'top': False, 'bottom': False, 'left': False, 'right': False,'any':False}
         self.collidingWith = self.CollisionBox([self.boundingBox.w,self.boundingBox.h])
         for other in self.collidingWith:
             self.collisionTypes['any'] = True
@@ -39,6 +40,7 @@ class Collider2D(BaseComponent):
             selfB = BoundingBox(self.GetColliderData())
             otherB = BoundingBox(other.GetColliderData())
 
+            #Check Top
             if ((selfB.x >= otherB.x and selfB.x <= otherB.x + otherB.w) or (selfB.x+selfB.w >= otherB.x and selfB.x+selfB.w <= otherB.x + otherB.w)):
                 if(selfB.y >= otherB.y):
                     self.collisionTypes['top'] = True
@@ -46,8 +48,17 @@ class Collider2D(BaseComponent):
             if ((selfB.x >= otherB.x and selfB.x <= otherB.x + otherB.w) or (selfB.x + selfB.w >= otherB.x and selfB.x + selfB.w <= otherB.x + otherB.w)):
                 if(selfB.y <= otherB.y):
                     self.collisionTypes['bottom'] = True
+            #Left
+            if ((selfB.y >= otherB.y and selfB.y <= otherB.y + otherB.h) or (selfB.y+selfB.h >= otherB.y and selfB.y+selfB.h <= otherB.y + otherB.h)):
+                if(selfB.x + selfB.w >= otherB.x+otherB.w):
+                    self.collisionTypes['right'] = True
+                    print("RIGHT")
+            #Right
+            if ((selfB.y >= otherB.y and selfB.y <= otherB.y + otherB.h) or (selfB.y + selfB.h >= otherB.y and selfB.y + selfB.h <= otherB.y + otherB.h)):
+                if(otherB.x >= selfB.x):
+                    self.collisionTypes['left'] = True
+                    print("LEFT")
 
-        #print(self.collisionTypes)
     def DoDebug(self):
         pygame.draw.rect(Globals.screen, (255, 0, 0), pygame.Rect(self.GetColliderData()))
         pygame.display.update()

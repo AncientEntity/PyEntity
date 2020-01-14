@@ -47,6 +47,11 @@ wall.position.y = 0
 testScene.AddObject(wall)
 wall2 = wall.Clone()
 wall2.position.y = 150
+wall3 = wall.Clone()
+wall3.position.x -= 200
+wall3.position.y += 100
+testScene.AddObject(wall3)
+
 
 
 testScene.AddObject(wall2)

@@ -18,14 +18,15 @@ class Physics2D(BaseComponent):
     def Update(self):
         if(self.static == False):
             if(self.parent.GetComponent("Collider2D") != None):
+                #print(self.myCol.collisionTypes)
                 if(self.myCol.collisionTypes['bottom'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,-500,0)
                 elif(self.myCol.collisionTypes['top'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,0,500)
                 if(self.myCol.collisionTypes['left'] == True):
+                    self.velocity.x =  MathF.Clamp(self.velocity.x,0,500)
+                if(self.myCol.collisionTypes['right'] == True):
                     self.velocity.x = MathF.Clamp(self.velocity.x,-500,0)
-                elif(self.myCol.collisionTypes['right'] == True):
-                    self.velocity.x = MathF.Clamp(self.velocity.x,0,500)
                 #print(self.myCol.collisionTypes)
             if(self.myCol.collisionTypes['bottom'] == False):
                 self.velocity.y -= self.gravity * Globals.deltaTime

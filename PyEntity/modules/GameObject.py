@@ -29,4 +29,4 @@ class GameObject:
                 return comp
         return None
     def Clone(self):
-        return copy.copy(self)
+        return copy.deepcopy(self)

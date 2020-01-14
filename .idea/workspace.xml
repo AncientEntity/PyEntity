@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PyEntity/modules/GameObject.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/GameObject.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PhysicsTest1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PhysicsTest1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+            <state relative-caret-position="517">
+              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
               <folding>
                 <element signature="e#1#36#0" expanded="true" />
               </folding>
@@ -64,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Collider2D.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Collider2D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+            <state relative-caret-position="187">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#1#56#0" expanded="true" />
               </folding>
@@ -79,8 +80,8 @@
       <file leaf-file-name="Physics2D.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+            <state relative-caret-position="323">
+              <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -173,15 +174,15 @@
         <option value="$PROJECT_DIR$/PyEntity/modules/Components/BaseComponent.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Image.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/GameObject.py" />
-        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" />
-        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" />
         <option value="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" />
+        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" />
+        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="241" />
-    <option name="y" value="-10" />
+    <option name="x" value="581" />
+    <option name="y" value="-15" />
     <option name="width" value="971" />
     <option name="height" value="1050" />
   </component>
@@ -190,6 +191,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,7 +233,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -707,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/MathF.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -744,32 +738,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
+    <entry file="file://$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+        <state relative-caret-position="517">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding>
-            <element signature="e#1#56#0" expanded="true" />
+            <element signature="e#1#36#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/MathF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
+        <state relative-caret-position="323">
+          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py">
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="187">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
           <folding>
-            <element signature="e#1#36#0" expanded="true" />
+            <element signature="e#1#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
