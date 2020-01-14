@@ -34,25 +34,19 @@ class Collider2D(BaseComponent):
     def DoCollisions(self):
         self.collidingWith = self.CollisionBox([self.boundingBox.w,self.boundingBox.h])
         for other in self.collidingWith:
-            player_bottom = self.parent.position.y + self.boundingBox.h
-            tiles_bottom = other.parent.position.y + other.boundingBox.h
-            player_right = self.parent.position.x + self.boundingBox.w
-            tiles_right = other.parent.position.x + other.boundingBox.w
-
-            b_collision = tiles_bottom - self.parent.position.y
-            t_collision = player_bottom - other.parent.position.y
-            l_collision = player_right - other.parent.position.x
-            r_collision = tiles_right - self.parent.position.x
-
-            if (t_collision < b_collision and t_collision < l_collision and t_collision < r_collision):
-                self.collisionTypes['top'] = True
-            if (b_collision < t_collision and b_collision < l_collision and b_collision < r_collision):
-                self.collisionTypes['bottom'] = True
-            if (l_collision < r_collision and l_collision < t_collision and l_collision < b_collision):
-                self.collisionTypes['left'] = True
-            if (r_collision < l_collision and r_collision < t_collision and r_collision < b_collision):
-                self.collisionTypes['right'] = True
             self.collisionTypes['any'] = True
+
+            selfB = BoundingBox(self.GetColliderData())
+            otherB = BoundingBox(other.GetColliderData())
+
+            if ((selfB.x >= otherB.x and selfB.x <= otherB.x + otherB.w) or (selfB.x+selfB.w >= otherB.x and selfB.x+selfB.w <= otherB.x + otherB.w)):
+                if(selfB.y >= otherB.y):
+                    self.collisionTypes['top'] = True
+            #Check Bottom
+            if ((selfB.x >= otherB.x and selfB.x <= otherB.x + otherB.w) or (selfB.x + selfB.w >= otherB.x and selfB.x + selfB.w <= otherB.x + otherB.w)):
+                if(selfB.y <= otherB.y):
+                    self.collisionTypes['bottom'] = True
+
         #print(self.collisionTypes)
     def DoDebug(self):
         pygame.draw.rect(Globals.screen, (255, 0, 0), pygame.Rect(self.GetColliderData()))
@@ -87,7 +81,17 @@ class Collider2D(BaseComponent):
         self.offset = offset
 
 class BoundingBox:
-    def __init__(self,x,y,w,h):
+    def __init__(self,x,y=0,w=0,h=0):
+        self.x = 0
+        self.y = 0
+        self.w = 0
+        self.h = 0
+        if(isinstance(x,list)):
+            self.x = x[0]
+            self.y = x[1]
+            self.w = x[2]
+            self.h = x[3]
+            return
         self.x = x
         self.y = y
         self.w = w

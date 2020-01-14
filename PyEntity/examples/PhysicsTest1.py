@@ -14,12 +14,12 @@ class PlayerController(BaseComponent.BaseComponent):
             if(event.type == Input.KeyDown):
                 if(event.key == "w"):
                     if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
-                        self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-1.5))
+                        self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-2.35))
                         #print("ree")
                 if (event.key == "a"):
-                    self.GetComponent("Physics2D").velocity.x -= 0.001
+                    self.GetComponent("Physics2D").velocity.x -= 0.005
                 elif(event.key == "d"):
-                    self.GetComponent("Physics2D").velocity.x += 0.001
+                    self.GetComponent("Physics2D").velocity.x += 0.005
 
 
 PyEntityMain.RegisterComponent(PlayerController())
@@ -43,8 +43,13 @@ wall.AddComponent("Collider2D")
 wall.scale.x = 2
 wall.scale.y = 4
 wall.GetComponent("Collider2D").BoundToImage()
-wall.position.y = 80
+wall.position.y = 0
 testScene.AddObject(wall)
+wall2 = wall.Clone()
+wall2.position.y = 150
+
+
+testScene.AddObject(wall2)
 
 
 apple = GameObject("Apple")

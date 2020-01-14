@@ -18,19 +18,26 @@ class Physics2D(BaseComponent):
     def Update(self):
         if(self.static == False):
             if(self.parent.GetComponent("Collider2D") != None):
-                if(self.myCol.collisionTypes['bottom'] == True or self.myCol.collisionTypes['any']):
+                if(self.myCol.collisionTypes['bottom'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,-500,0)
-            if(self.myCol.collisionTypes['bottom'] == False and  self.myCol.collisionTypes['any'] == False):
+                elif(self.myCol.collisionTypes['top'] == True):
+                    self.velocity.y = MathF.Clamp(self.velocity.y,0,500)
+                if(self.myCol.collisionTypes['left'] == True):
+                    self.velocity.x = MathF.Clamp(self.velocity.x,-500,0)
+                elif(self.myCol.collisionTypes['right'] == True):
+                    self.velocity.x = MathF.Clamp(self.velocity.x,0,500)
+                #print(self.myCol.collisionTypes)
+            if(self.myCol.collisionTypes['bottom'] == False):
                 self.velocity.y -= self.gravity * Globals.deltaTime
             else:
                 self.velocity.y = 0
                 if (self.velocity.x != 0):
-                    self.velocity.x -= float(self.velocity.x) * 0.005
+                    self.velocity.x -= float(self.velocity.x) * 0.01
             self.parent.position = Vectors.Vector2(self.parent.position.x + self.velocity.x,
                                                    self.parent.position.y + self.velocity.y)
             #print(self.velocity)
             self.parent.rotation += self.rotationVelocity
-            print(self.myCol.collisionTypes)
+            #print(self.myCol.collisionTypes)
     def AddVelocity(self,vecToAdd):
         self.velocity.x += vecToAdd.x
         self.velocity.y += vecToAdd.y
