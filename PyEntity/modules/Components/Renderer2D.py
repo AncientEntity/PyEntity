@@ -17,4 +17,4 @@ class Renderer2D(BaseComponent):
         self.sprite = Image.ScaleImage(self.sprite,new)
         #print("Scale updated")
     def RotationChange(self,old,new):
-        self.sprite = Image.RotateImage(self.sprite,new)
+        self.sprite = Image.RotateImage(self.sprite,new,self.parent.scale)

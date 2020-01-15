@@ -30,10 +30,10 @@ def ScaleImage(img, newScale):
         Globals.loadedImages[img] = new
         return img
 
-def RotateImage(img, rotation):
+def RotateImage(img, rotation,scale):
     if(isinstance(img,pygame.Surface)):
         return pygame.transform.rotate(img,rotation)
     else:
         new = Image(Globals.loadedImageLocations[img],override=img)
-        Globals.loadedImages[img] = pygame.transform.rotate(Globals.loadedImages[new],rotation)
+        Globals.loadedImages[img] = ScaleImage(pygame.transform.rotate(Globals.loadedImages[new],rotation),scale)
         return img

@@ -9,7 +9,8 @@
       <change beforePath="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PyEntity/modules/GameObject.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/GameObject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PyEntity/modules/Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/PyEntity/modules/Image.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="PhysicsTest1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+            <state relative-caret-position="1144">
+              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
               <folding>
                 <element signature="e#1#36#0" expanded="true" />
               </folding>
@@ -35,8 +36,8 @@
       <file leaf-file-name="Image.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/Image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="396">
+              <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -47,7 +48,7 @@
       <file leaf-file-name="GameTest1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/examples/GameTest1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
+            <state relative-caret-position="855">
               <caret line="74" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -65,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Collider2D.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Collider2D.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="-238">
+              <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
               <folding>
                 <element signature="e#1#56#0" expanded="true" />
               </folding>
@@ -77,46 +78,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Physics2D.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PyEntityMain.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PyEntity/PyEntityMain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1541">
+              <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RenderingManager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PyEntity/modules/RenderingManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Physics2D.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+            <state relative-caret-position="349">
+              <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vectors.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PyEntity/modules/Vectors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Globals.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PyEntity/Globals.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseComponent.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/BaseComponent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,11 +114,20 @@
       <file leaf-file-name="GameObject.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyEntity/modules/GameObject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+            <state relative-caret-position="141">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Renderer2D.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -165,18 +163,18 @@
         <option value="$PROJECT_DIR$/PyEntity/modules/Components/UIText.py" />
         <option value="$PROJECT_DIR$/GameTest1.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Scene.py" />
-        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/MathF.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Components/CircleCollider2D.py" />
         <option value="$PROJECT_DIR$/PyEntity/PyEntityMain.py" />
         <option value="$PROJECT_DIR$/PyEntity/Globals.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Vectors.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Components/BaseComponent.py" />
-        <option value="$PROJECT_DIR$/PyEntity/modules/Image.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/GameObject.py" />
         <option value="$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py" />
-        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" />
         <option value="$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" />
+        <option value="$PROJECT_DIR$/PyEntity/modules/Image.py" />
+        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py" />
+        <option value="$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py" />
       </list>
     </option>
   </component>
@@ -646,38 +644,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/RenderingManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py" />
     <entry file="file://$PROJECT_DIR$/PyEntity/assets/Examples/ground.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="112" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="112" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Camera.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/PyEntityMain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -708,10 +682,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/MathF.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="396">
+          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -720,7 +701,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/examples/GameTest1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
+        <state relative-caret-position="855">
           <caret line="74" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -728,49 +709,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/GameObject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/examples/PhysicsTest1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+        <state relative-caret-position="1144">
+          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
           <folding>
             <element signature="e#1#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/MathF.py">
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="-238">
+          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding>
+            <element signature="e#1#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/PyEntityMain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="143" column="21" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/RenderingManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/GameObject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Renderer2D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Physics2D.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+        <state relative-caret-position="349">
+          <caret line="24" column="63" lean-forward="true" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PyEntity/modules/Components/Collider2D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#1#56#0" expanded="true" />
           </folding>
         </state>
       </provider>

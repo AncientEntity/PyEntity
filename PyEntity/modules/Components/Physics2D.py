@@ -21,6 +21,7 @@ class Physics2D(BaseComponent):
                 #print(self.myCol.collisionTypes)
                 if(self.myCol.collisionTypes['bottom'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,-500,0)
+                    #self.rotationVelocity += -self.velocity.x*0.2
                 elif(self.myCol.collisionTypes['top'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,0,500)
                 if(self.myCol.collisionTypes['left'] == True):
@@ -34,6 +35,8 @@ class Physics2D(BaseComponent):
                 self.velocity.y = 0
                 if (self.velocity.x != 0):
                     self.velocity.x -= float(self.velocity.x) * 0.01
+                if(self.rotationVelocity != 0):
+                    self.rotationVelocity -= float(self.rotationVelocity) * 0.05
             self.parent.position = Vectors.Vector2(self.parent.position.x + self.velocity.x,
                                                    self.parent.position.y + self.velocity.y)
             #print(self.velocity)

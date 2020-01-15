@@ -24,7 +24,7 @@ class PlayerController(BaseComponent.BaseComponent):
 
 PyEntityMain.RegisterComponent(PlayerController())
 
-testScene = Scene("Testing")
+testScene = Scene("Testing",False)
 
 ground = GameObject("Ground")
 ground.AddComponent("Renderer2D")
@@ -43,14 +43,17 @@ wall.AddComponent("Collider2D")
 wall.scale.x = 2
 wall.scale.y = 4
 wall.GetComponent("Collider2D").BoundToImage()
-wall.position.y = 0
+wall.position.y = -50
 testScene.AddObject(wall)
 wall2 = wall.Clone()
 wall2.position.y = 150
 wall3 = wall.Clone()
 wall3.position.x -= 200
-wall3.position.y += 100
+wall3.position.y += 150
 testScene.AddObject(wall3)
+wall4 = wall3.Clone()
+wall4.position.x += 400
+testScene.AddObject(wall4)
 
 
 
@@ -66,6 +69,7 @@ apple.AddComponent("PlayerController")
 apple.scale = Vector2(3,3)
 apple.GetComponent("Collider2D").BoundToImage()
 apple.position.y = -100
+apple.AddComponent("Camera")
 
 testScene.AddObject(apple)
 

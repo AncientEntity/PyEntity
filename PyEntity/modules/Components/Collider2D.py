@@ -50,14 +50,14 @@ class Collider2D(BaseComponent):
                     self.collisionTypes['bottom'] = True
             #Left
             if ((selfB.y >= otherB.y and selfB.y <= otherB.y + otherB.h) or (selfB.y+selfB.h >= otherB.y and selfB.y+selfB.h <= otherB.y + otherB.h)):
-                if(selfB.x + selfB.w >= otherB.x+otherB.w):
-                    self.collisionTypes['right'] = True
-                    print("RIGHT")
-            #Right
-            if ((selfB.y >= otherB.y and selfB.y <= otherB.y + otherB.h) or (selfB.y + selfB.h >= otherB.y and selfB.y + selfB.h <= otherB.y + otherB.h)):
-                if(otherB.x >= selfB.x):
+                if(selfB.x+3 >= otherB.x+otherB.w):
                     self.collisionTypes['left'] = True
-                    print("LEFT")
+                    #print("LEFT")
+            #Right
+            if ((selfB.y >= otherB.y and selfB.y <= otherB.y + otherB.h) or (selfB.y+selfB.h-3 >= otherB.y and selfB.y+selfB.h-3 <= otherB.y + otherB.h)):
+                if(selfB.x + selfB.w-3 <= otherB.x):
+                    self.collisionTypes['right'] = True
+                    #print("RIGHT")
 
     def DoDebug(self):
         pygame.draw.rect(Globals.screen, (255, 0, 0), pygame.Rect(self.GetColliderData()))
