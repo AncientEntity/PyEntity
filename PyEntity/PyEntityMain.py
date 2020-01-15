@@ -29,6 +29,7 @@ def LaunchGame(gameData):
     gameRunning = True
     Globals.screenSize = gameData.screenSize
     Globals.screen = pygame.display.set_mode((Globals.screenSize.x, Globals.screenSize.y))
+    Globals.gravity = gameData.gravity
     fCountStart = 0
     while gameRunning:
         Globals.frames+=1
@@ -46,28 +47,25 @@ class FullGameData:
         self.defaultScene = 0
         self.name = ""
         self.screenSize = Vector2(800,600)
+        self.gravity = -9.8
 
 
 def GatherInputs():
     #newInputs = []
     #print(Globals.inputEvents)
+    for key in Globals.keydown:
+        if(key not in Globals.keypressed):
+            Globals.keypressed.append(key)
+    Globals.keydown = []
+    Globals.keyup = []
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            found = False
-            for e in Globals.inputEvents:
-                if(e.key == pygame.key.name(event.key)):
-                    found = True
-                    break
-            if(found == False):
-                Globals.inputEvents.append(Input.Event(pygame.key.name(event.key),event.type))
+            if(pygame.key.name(event.key) not in Globals.keypressed):
+                Globals.keydown.append(pygame.key.name(event.key))
         elif event.type == pygame.KEYUP:
-            found = None
-            for e in Globals.inputEvents:
-                if(e.key == pygame.key.name(event.key)):
-                    found = e
-                    break
-            if(found != None):
-                Globals.inputEvents.remove(found)
+            if(pygame.key.name(event.key) in Globals.keypressed):
+                Globals.keypressed.remove(pygame.key.name(event.key))
+                Globals.keyup.append(pygame.key.name(event.key))
         elif(event.type == pygame.QUIT):
             pygame.quit()
             exit(0)

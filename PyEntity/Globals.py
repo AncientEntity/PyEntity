@@ -14,7 +14,9 @@ screenSize = Vector2(0,0)
 scenes = []
 objects = []
 mainCamera = None
-inputEvents = []
+keydown = []
+keypressed =[]
+keyup = []
 mousePosition = [0,0]
 engineLocation = ""
 loadedImages = []
@@ -35,7 +37,9 @@ def Init():
     global objects
     global scenes
     global mainCamera
-    global inputEvents
+    global keydown
+    global keypressed
+    global keyup
     global mousePosition
     global engineLocation
     global errorImage
@@ -48,6 +52,9 @@ def Init():
     global deltaTime
     global gameTime
     global debugMode
+    keydown = []
+    keypressed = []
+    keyup = []
     debugMode = debugMode
     frames = 0
     deltaTime = 0

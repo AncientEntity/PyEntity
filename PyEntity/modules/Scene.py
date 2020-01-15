@@ -21,6 +21,9 @@ class Scene:
     def AddObject(self, obj):
         if isinstance(obj, GameObject):
             self.objects.append(obj)
+    def RemoveObject(self,obj):
+        if(isinstance(obj,GameObject)):
+            self.objects.remove(obj)
 
     def LoadScene(scene):
         LoadScene(scene)

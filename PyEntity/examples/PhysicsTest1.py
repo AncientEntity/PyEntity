@@ -10,21 +10,21 @@ class PlayerController(BaseComponent.BaseComponent):
         super().__init__()
         self.name = "PlayerController"
     def Update(self):
-        for event in Globals.inputEvents:
-            if(event.type == Input.KeyDown):
-                if(event.key == "w"):
-                    if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
-                        self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-2.35))
-                        #print("ree")
-                if (event.key == "a"):
-                    self.GetComponent("Physics2D").velocity.x -= 0.005
-                elif(event.key == "d"):
-                    self.GetComponent("Physics2D").velocity.x += 0.005
+        for event in Globals.keypressed:
+            if(event == "w"):
+                if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
+                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-2.35))
+                    #print("ree")
+            if (event == "a"):
+                self.GetComponent("Physics2D").velocity.x -= 0.005
+            elif(event == "d"):
+                self.GetComponent("Physics2D").velocity.x += 0.005
+
 
 
 PyEntityMain.RegisterComponent(PlayerController())
 
-testScene = Scene("Testing",False)
+testScene = Scene("Testing",True)
 
 ground = GameObject("Ground")
 ground.AddComponent("Renderer2D")
@@ -54,8 +54,7 @@ testScene.AddObject(wall3)
 wall4 = wall3.Clone()
 wall4.position.x += 400
 testScene.AddObject(wall4)
-
-
+#testScene.RemoveObject(wall)
 
 testScene.AddObject(wall2)
 
@@ -69,7 +68,7 @@ apple.AddComponent("PlayerController")
 apple.scale = Vector2(3,3)
 apple.GetComponent("Collider2D").BoundToImage()
 apple.position.y = -100
-apple.AddComponent("Camera")
+#apple.AddComponent("Camera")
 
 testScene.AddObject(apple)
 

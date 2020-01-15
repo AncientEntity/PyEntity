@@ -13,7 +13,7 @@ class BaseComponent:
         Globals.masterComponents.append(self)
 
     def CreateNew(self):
-        return copy.copy(self)
+        return copy.deepcopy(self)
 
     def GetComponent(self,component):
         for comp in self.parent.components:

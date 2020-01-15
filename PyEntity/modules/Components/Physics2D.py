@@ -8,7 +8,7 @@ class Physics2D(BaseComponent):
     def __init__(self):
         super().__init__()
         self.name = "Physics2D"
-        self.gravity = Globals.gravity
+        #self.gravity = Globals.gravity
         self.velocity = Vectors.Vector2(0,0)
         self.rotationVelocity = 0
         self.static = False
@@ -30,7 +30,7 @@ class Physics2D(BaseComponent):
                     self.velocity.x = MathF.Clamp(self.velocity.x,-500,0)
                 #print(self.myCol.collisionTypes)
             if(self.myCol.collisionTypes['bottom'] == False):
-                self.velocity.y -= self.gravity * Globals.deltaTime
+                self.velocity.y -= Globals.gravity * Globals.deltaTime
             else:
                 self.velocity.y = 0
                 if (self.velocity.x != 0):

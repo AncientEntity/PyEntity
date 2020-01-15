@@ -8,6 +8,7 @@ class Event:
     def __str__(self):
         return self.key
 
+
 KeyDown = pygame.KEYDOWN
 KeyUp = pygame.KEYUP
 
