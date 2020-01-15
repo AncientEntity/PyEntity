@@ -25,6 +25,10 @@ def ScaleImage(img, newScale):
     if(isinstance(img,pygame.Surface)):
         return pygame.transform.scale(img,(img.get_width() * newScale.x,img.get_height() * newScale.y))
     else:
+        if(img == None):
+            return
+        if(Image(Globals.loadedImageLocations[img]) == None):
+            return
         new = Globals.loadedImages[Image(Globals.loadedImageLocations[img])]
         new = pygame.transform.scale(new,(int(new.get_width() * newScale.x), int(new.get_height() * newScale.y)))
         Globals.loadedImages[img] = new
