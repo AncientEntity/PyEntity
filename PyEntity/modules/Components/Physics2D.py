@@ -13,10 +13,15 @@ class Physics2D(BaseComponent):
         self.rotationVelocity = 0
         self.static = False
         self.myCol = None
+        self.lockedDirections = Vectors.BooleanVector2(False,False)
     def Start(self):
         self.myCol = self.parent.GetComponent("Collider2D")
     def Update(self):
         if(self.static == False):
+            if(self.lockedDirections.x == True):
+                self.velocity.x = 0
+            if(self.lockedDirections.y == True):
+                self.velocity.y = 0
             if(self.parent.GetComponent("Collider2D") != None):
                 #print(self.myCol.collisionTypes)
                 if(self.myCol.collisionTypes['bottom'] == True):
@@ -29,14 +34,14 @@ class Physics2D(BaseComponent):
                 if(self.myCol.collisionTypes['right'] == True):
                     self.velocity.x = MathF.Clamp(self.velocity.x,-500,0)
                 #print(self.myCol.collisionTypes)
-            if(self.myCol.collisionTypes['bottom'] == False):
-                self.velocity.y -= Globals.gravity * Globals.deltaTime
-            else:
-                self.velocity.y = 0
-                if (self.velocity.x != 0):
-                    self.velocity.x -= float(self.velocity.x) * 0.01
-                if(self.rotationVelocity != 0):
-                    self.rotationVelocity -= float(self.rotationVelocity) * 0.05
+                if(self.myCol.collisionTypes['bottom'] == False):
+                    self.velocity.y -= Globals.gravity * Globals.deltaTime
+                else:
+                    self.velocity.y = 0
+                    if (self.velocity.x != 0):
+                        self.velocity.x -= float(self.velocity.x) * 0.01
+                    if(self.rotationVelocity != 0):
+                        self.rotationVelocity -= float(self.rotationVelocity) * 0.05
             self.parent.position = Vectors.Vector2(self.parent.position.x + self.velocity.x,
                                                    self.parent.position.y + self.velocity.y)
             #print(self.velocity)

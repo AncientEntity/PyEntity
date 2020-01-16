@@ -5,6 +5,7 @@ from PyEntity.modules.Components.Renderer2D import Renderer2D
 from PyEntity.modules.Components.UIText import UIText
 from PyEntity.modules.Components.Physics2D import Physics2D
 from PyEntity.modules.Components.Collider2D import Collider2D
+from PyEntity.modules.Components.ConstantVelocity import ConstantVelocity
 from PyEntity.modules.Vectors import Vector2
 
 masterComponents = []
@@ -24,6 +25,7 @@ loadedImageLocations = []
 gravity = -9.8
 fpsMax = 60.0
 debugMode = False
+prefabs = []
 
 gameTime = 0
 deltaTime = 0
@@ -52,6 +54,8 @@ def Init():
     global deltaTime
     global gameTime
     global debugMode
+    global prefabs
+    prefabs = []
     keydown = []
     keypressed = []
     keyup = []
@@ -78,4 +82,5 @@ def Init():
     masterComponents.append(UIText())
     masterComponents.append(Physics2D())
     masterComponents.append(Collider2D())
+    masterComponents.append(ConstantVelocity())
 

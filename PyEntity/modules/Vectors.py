@@ -17,5 +17,10 @@ class Vector3:
         self.y = y
         self.z = z
 
+class BooleanVector2:
+    def __init__(self,x=False,y=False):
+        self.x = x
+        self.y = y
+
 def Distance2D(v1,v2):
     return math.fabs(math.sqrt((math.pow(v1.x-v2.x,2)+math.pow(v1.y-v2.y,2))))

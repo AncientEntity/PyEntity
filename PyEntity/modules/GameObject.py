@@ -30,3 +30,6 @@ class GameObject:
         return None
     def Clone(self):
         return copy.deepcopy(self)
+    def Destroy(self):
+        Globals.objects.remove(self)
+        self = ""
