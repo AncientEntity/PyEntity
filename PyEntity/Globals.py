@@ -1,11 +1,11 @@
 from PyEntity.modules.Components.BaseComponent import BaseComponent
-from PyEntity.modules.Components.BaseComponent import BaseComponent
 from PyEntity.modules.Components.Camera import Camera
 from PyEntity.modules.Components.Renderer2D import Renderer2D
 from PyEntity.modules.Components.UIText import UIText
 from PyEntity.modules.Components.Physics2D import Physics2D
 from PyEntity.modules.Components.Collider2D import Collider2D
 from PyEntity.modules.Components.ConstantVelocity import ConstantVelocity
+from PyEntity.modules.Components.ParticleSystem import ParticleSystem2D
 from PyEntity.modules.Vectors import Vector2
 
 masterComponents = []
@@ -32,6 +32,7 @@ deltaTime = 0
 frames = 0
 
 errorImage = ""
+engineSprites = []
 
 def Init():
     global masterComponents
@@ -55,6 +56,7 @@ def Init():
     global gameTime
     global debugMode
     global prefabs
+    global engineSprites
     prefabs = []
     keydown = []
     keypressed = []
@@ -73,9 +75,12 @@ def Init():
     mainCamera = None
     fpsMax = fpsMax
     errorImage = ""
-    mousePosition = [0,0]
+    mousePosition = Vector2(0,0)
     engineLocation = ""
     gravity = gravity
+
+    engineSprites = []
+
     masterComponents.append(BaseComponent())
     masterComponents.append(Renderer2D(None))
     masterComponents.append(Camera())
@@ -83,4 +88,5 @@ def Init():
     masterComponents.append(Physics2D())
     masterComponents.append(Collider2D())
     masterComponents.append(ConstantVelocity())
+    masterComponents.append(ParticleSystem2D())
 

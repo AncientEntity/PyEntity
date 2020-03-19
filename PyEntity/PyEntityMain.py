@@ -23,6 +23,10 @@ Globals.engineLocation = os.path.join(os.path.dirname(__file__))
 Globals.errorImage = Image(Globals.engineLocation+"\\assets\\error.png")
 print("Engine Loaded At: "+Globals.engineLocation)
 
+Globals.engineSprites.append(pygame.image.load(Globals.engineLocation + "\\assets\\default-particle.png"))
+
+mousePosition = Vector2(0,0)
+
 def LaunchGame(gameData):
     Globals.scenes = gameData.scenes
     Scene.LoadScene(gameData.defaultScene)
@@ -51,6 +55,8 @@ class FullGameData:
 
 
 def GatherInputs():
+    Globals.mousePosition = Vector2(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])
+    #print(Globals.mousePosition)
     #newInputs = []
     #print(Globals.inputEvents)
     for key in Globals.keydown:
@@ -70,7 +76,6 @@ def GatherInputs():
             pygame.quit()
             exit(0)
     #Globals.inputEvents = pygame.event.get()
-    Globals.mousePosition = [pygame.mouse.get_cursor()[0],pygame.mouse.get_cursor()[1]]
 
 def DoGameObjectFunctions():
     for obj in Globals.objects:

@@ -9,6 +9,7 @@ class BaseComponent:
         self.name = "Base";
         self.doneStart = False
         self.parent = None
+        self.gameObject = None
         # DebugTools.Debug("Don't use BaseComponent. Use it as a base.")
         Globals.masterComponents.append(self)
 

@@ -19,6 +19,7 @@ class GameObject:
             if(comp.name == component):
                 new = comp.CreateNew()
                 new.parent = self
+                new.gameObject = self
                 self.components.append(new)
                 return
         raise Exception(component+" is not a valid component. Make sure to register it! using RegisterComponent(component)")

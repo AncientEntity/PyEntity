@@ -17,20 +17,32 @@ class PlayerController(BaseComponent):
         for event in Globals.keydown:
             if(event == "w"):
                 self.parent.GetComponent("Physics2D").velocity.y = -1
-        #if(self.parent.position.y < -225):
-        #    self.parent.Destroy()
-        #if(self.parent.position.y > 220):
-        #    self.parent.Destroy()
+        for event in Globals.keypressed:
+            if(event == "right"):
+                Globals.mainCamera.position.x += 1
+            if(event == "up"):
+                Globals.mainCamera.position.y -= 1
+            if(event == "down"):
+                Globals.mainCamera.position.y += 1
+        if(self.parent.position.y < -225):
+            self.parent.Destroy()
+        if(self.parent.position.y > 220):
+            self.parent.Destroy()
         self.timer -= Globals.deltaTime
         if(self.timer <= 0):
             pipe = Instantiate(basePipe)
-            offset = random.randint(-600,-200)
-            pipe.position.y += offset
             topPipe = Instantiate(basePipe)
-            topPipe.rotation = 180
-            topPipe.position.y += -offset
+            offset = random.randint(-200,200)
+            pipe.position.y = offset-435
+            pipe.position.x = 800
+            topPipe.position.y = offset+435
+            topPipe.position.x = 800
             self.timer = 1.5
-
+        self.DoDeath()
+    def DoDeath(self):
+        for other in self.GetComponent("Collider2D").collidingWith:
+            if(other.parent.tag == "enemy"):
+                self.parent.Destroy()
 
 
 RegisterComponent(PlayerController())
@@ -53,6 +65,7 @@ basePipe.AddComponent("Renderer2D")
 basePipe.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation+"\\assets\\Examples\\pipe.png")
 basePipe.AddComponent("Physics2D")
 basePipe.GetComponent("Physics2D").lockedDirections.y = True
+basePipe.AddComponent("Collider2D")
 basePipe.position.x = 700
 basePipe.AddComponent("ConstantVelocity")
 basePipe.GetComponent("ConstantVelocity").constantV.x = -0.5
