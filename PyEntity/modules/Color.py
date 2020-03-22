@@ -7,3 +7,5 @@ class Color:
         self.g = g
         self.b = b
         self.a = a
+    def __str__(self):
+        return "("+str(self.r)+","+str(self.g)+","+str(self.b)+","+str(self.a)+")"

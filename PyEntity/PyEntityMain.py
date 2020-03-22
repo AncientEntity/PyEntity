@@ -23,7 +23,7 @@ Globals.engineLocation = os.path.join(os.path.dirname(__file__))
 Globals.errorImage = Image(Globals.engineLocation+"\\assets\\error.png")
 print("Engine Loaded At: "+Globals.engineLocation)
 
-Globals.engineSprites.append(pygame.image.load(Globals.engineLocation + "\\assets\\default-particle.png"))
+#Globals.engineSprites.append(pygame.image.load(Globals.engineLocation + "\\assets\\default-particle.png"))
 
 mousePosition = Vector2(0,0)
 

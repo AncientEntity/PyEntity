@@ -27,8 +27,8 @@ class Collider2D(BaseComponent):
         self.collisionTypes = {'top': False, 'bottom': False, 'left': False, 'right': False,'any':False}
         if(self.phy2D == None):
             self.phy2D = self.parent.GetComponent("Physics2D")
-        else:
-            self.DoCollisions()
+        #else:
+        self.DoCollisions()
         if(self.debug == True):
             self.DoDebug()
     def DoCollisions(self):
@@ -90,6 +90,12 @@ class Collider2D(BaseComponent):
         self.boundingBox.w = Globals.loadedImages[renderer.sprite].get_width()
         self.boundingBox.h = Globals.loadedImages[renderer.sprite].get_height()
         self.offset = offset
+    def CollidingWithTagOf(self,tag):
+        for obj in self.collidingWith:
+            #print(obj.parent.tag)
+            if(obj.parent.tag == tag):
+                return obj
+        return None
 
 class BoundingBox:
     def __init__(self,x,y=0,w=0,h=0):
