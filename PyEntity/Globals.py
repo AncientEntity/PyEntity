@@ -24,14 +24,13 @@ engineLocation = ""
 loadedImages = []
 loadedImageLocations = []
 gravity = -9.8
-fpsMax = 60.0
 debugMode = False
 prefabs = []
 
 gameTime = 0
 deltaTime = 0
 frames = 0
-targetFPS = 60#-1 == no limit
+targetFPS = -1#-1 == no limit
 fps = -1
 
 errorImage = ""
@@ -51,7 +50,6 @@ def Init():
     global errorImage
     global loadedImages
     global gravity
-    global fpsMax
     global screenSize
     global loadedImageLocations
     global frames
@@ -80,7 +78,6 @@ def Init():
     loadedImages = []
     inputEvents = []
     mainCamera = None
-    fpsMax = fpsMax
     errorImage = ""
     mousePosition = Vector2(0,0)
     engineLocation = ""

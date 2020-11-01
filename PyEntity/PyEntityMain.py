@@ -34,18 +34,18 @@ def LaunchGame(gameData):
     Globals.screenSize = gameData.screenSize
     Globals.screen = pygame.display.set_mode((Globals.screenSize.x, Globals.screenSize.y))
     Globals.gravity = gameData.gravity
-    fCountStart = 0
     while gameRunning: #The Actual Game Loop
         frameStartTime = time.time()
         Globals.frames+=1
         GatherInputs()
         DoGameObjectFunctions()
+        if(Globals.deltaTime > 0):
+            Globals.fps = 1.0 / Globals.deltaTime
         if(Globals.targetFPS > 0):
             if(Globals.frames % (Globals.targetFPS / 60) == 0):
                 RenderEngine(Globals.screen)
             if(Globals.deltaTime > 0): #FPS Limiter
                 #print(1.0 / Globals.deltaTime)
-                Globals.fps = 1.0 / Globals.deltaTime
                 sleepTime = 1/Globals.targetFPS#-Globals.deltaTime
                 if(sleepTime > 0):
                     time.sleep(sleepTime)
@@ -61,6 +61,7 @@ class FullGameData:
         self.name = ""
         self.screenSize = Vector2(800,600)
         self.gravity = -9.8
+        self.gameName = "Unnamed Game"
 
 
 def GatherInputs():
