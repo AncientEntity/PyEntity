@@ -29,6 +29,7 @@ def RenderEngine(screen):
         imageDimensions.y = workingImage.get_height()
         if(request.color != None):
             workingImage.fill((request.color.r,request.color.g,request.color.b,request.color.a),special_flags=pygame.BLEND_MIN)
+            workingImage.set_alpha(request.color.a)
             #print(request.color)
         if (request.isUI == False):
             blitPos = (request.position.x-offset.x+(Globals.screenSize.x / 2)-(imageDimensions.x/2), request.position.y-offset.y+(Globals.screenSize.y / 2)-(imageDimensions.y/2))

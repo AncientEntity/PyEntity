@@ -37,12 +37,19 @@ class ParticleSystem2D(BaseComponent):
         #self.particleColor = Color.Color(255,0,0,255)
         self.gravity = 0
         self.particleSprite = Image.Image("..\\assets\\default-particle.png")
-
+        self.useLocalSpace = False
         self.amountDue = 0
+
+        self.lastFramePosition = Vectors.Vector2(0,0)
     def Start(self):
+        self.lastFramePosition = self.parent.position
         if(self.playOnAwake):
             self.isPlaying = True
     def Update(self):
+        offset = Vectors.Vector2(0,0)
+        if(self.useLocalSpace):
+            offset = self.parent.position - self.lastFramePosition
+            self.lastFramePosition = self.parent.position
         for particle in self.particles: #Do current particles
             #print(particle)
             finalizedSprite = ""
@@ -61,8 +68,8 @@ class ParticleSystem2D(BaseComponent):
                 self.particles.remove(particle)
             else:
                 particle.velocity.y += self.gravity * Globals.deltaTime
-                particle.position.x += particle.velocity.x * Globals.deltaTime
-                particle.position.y += particle.velocity.y * Globals.deltaTime
+                particle.position.x += particle.velocity.x * Globals.deltaTime + offset.x
+                particle.position.y += particle.velocity.y * Globals.deltaTime + offset.y
                 particle.size = MathF.Clamp(particle.size - self.sizeDecreaseOverTime * Globals.deltaTime, 0.01,9999999)
         if(self.isPlaying):
             self.amountDue += self.emissionSpeed * Globals.deltaTime

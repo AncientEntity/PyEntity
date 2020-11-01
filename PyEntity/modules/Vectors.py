@@ -6,10 +6,11 @@ class Vector2:
         self.x = x
         self.y = y
     def __add__(self, other):
-        return (self.x+other.x,self.y+other.y)
+        return Vector2(self.x+other.x,self.y+other.y)
     def __str__(self):
         return str(self.x) + "," + str(self.y)
-
+    def __sub__(self, other):
+        return Vector2(self.x-other.x,self.y-other.y)
 
 class Vector3:
     def __init__(self,x=0,y=0,z=0):
