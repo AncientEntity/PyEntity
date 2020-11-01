@@ -19,6 +19,7 @@ keydown = []
 keypressed =[]
 keyup = []
 mousePosition = [0,0]
+mouseWorldPosition = [0,0]
 engineLocation = ""
 loadedImages = []
 loadedImageLocations = []
@@ -30,6 +31,8 @@ prefabs = []
 gameTime = 0
 deltaTime = 0
 frames = 0
+targetFPS = 60#-1 == no limit
+fps = -1
 
 errorImage = ""
 engineSprites = []
@@ -57,6 +60,10 @@ def Init():
     global debugMode
     global prefabs
     global engineSprites
+    global targetFPS
+    global fps
+
+    fps = -1
     prefabs = []
     keydown = []
     keypressed = []

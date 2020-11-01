@@ -26,8 +26,8 @@ class ParticleSystem2D(BaseComponent):
         self.playOnAwake = True
         self.isPlaying = False
         self.particles = []
-        self.maxParticles = 5000
-        self.emmisionPerFrame = 1
+        self.maxParticles = 2500
+        self.emissionSpeed = 60
         self.emissionBox = [0,0,0,0] #x,y,w,h
         self.particleLifetime = 60 # in frames
         self.randomStartVelocity = [Vectors.Vector2(-0.5,-0.5),Vectors.Vector2(0.5,0.5)] #min,max
@@ -63,7 +63,10 @@ class ParticleSystem2D(BaseComponent):
                 particle.position.y += particle.velocity.y
                 particle.size = MathF.Clamp(particle.size - self.sizeDecreaseOverTime, 0.01,9999999)
         if(self.isPlaying):
-            for i in range(self.emmisionPerFrame): #Make new particles
+            amountThisFrame = self.emissionSpeed / 60
+            if(Globals.targetFPS > 0):
+                amountThisFrame = self.emissionSpeed / Globals.targetFPS
+            for i in range(int(amountThisFrame)): #Make new particles
                 if(len(self.particles) >= self.maxParticles):
                     break
 

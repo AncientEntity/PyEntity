@@ -35,15 +35,24 @@ def LaunchGame(gameData):
     Globals.screen = pygame.display.set_mode((Globals.screenSize.x, Globals.screenSize.y))
     Globals.gravity = gameData.gravity
     fCountStart = 0
-    while gameRunning:
-        Globals.frames+=1
+    while gameRunning: #The Actual Game Loop
         frameStartTime = time.time()
+        Globals.frames+=1
         GatherInputs()
         DoGameObjectFunctions()
-        RenderEngine(Globals.screen)
+        if(Globals.targetFPS > 0):
+            if(Globals.frames % (Globals.targetFPS / 60) == 0):
+                RenderEngine(Globals.screen)
+            if(Globals.deltaTime > 0): #FPS Limiter
+                #print(1.0 / Globals.deltaTime)
+                Globals.fps = 1.0 / Globals.deltaTime
+                sleepTime = 1/Globals.targetFPS#-Globals.deltaTime
+                if(sleepTime > 0):
+                    time.sleep(sleepTime)
+        else:
+            RenderEngine(Globals.screen)
         Globals.deltaTime = time.time() - frameStartTime
         Globals.gameTime += Globals.deltaTime
-        #print(1.0 / Globals.deltaTime)
 
 class FullGameData:
     def __init__(self):
@@ -56,6 +65,7 @@ class FullGameData:
 
 def GatherInputs():
     Globals.mousePosition = Vector2(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])
+    Globals.mouseWorldPosition = Vector2(Globals.mousePosition.x - Globals.screenSize.x/2,Globals.mousePosition.y - Globals.screenSize.y/2)
     #print(Globals.mousePosition)
     #newInputs = []
     #print(Globals.inputEvents)

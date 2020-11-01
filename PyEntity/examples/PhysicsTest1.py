@@ -9,16 +9,20 @@ class PlayerController(BaseComponent.BaseComponent):
     def __init__(self):
         super().__init__()
         self.name = "PlayerController"
+        self.fpsText = None
+    def Start(self):
+        self.fpsText = FindGameObjectByTag("FPS").GetComponent("UIText")
     def Update(self):
         for event in Globals.keypressed:
             if(event == "w"):
                 if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
-                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-2.35))
+                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-8.35))
                     #print("ree")
             if (event == "a"):
                 self.GetComponent("Physics2D").velocity.x -= 0.005
             elif(event == "d"):
                 self.GetComponent("Physics2D").velocity.x += 0.005
+        self.fpsText.text = "FPS: "+str(round(Globals.fps))
 
 
 
@@ -71,6 +75,14 @@ apple.position.y = -100
 #apple.AddComponent("Camera")
 
 testScene.AddObject(apple)
+
+fpsCounter = GameObject("FPSCounter")
+fpsCounter.tag = "FPS"
+fpsCounter.x = -100
+fpsCounter.AddComponent("UIText")
+fpsCounter.GetComponent("UIText").text = "Test"
+
+testScene.AddObject(fpsCounter)
 
 gameData = FullGameData()
 gameData.scenes.append(testScene)

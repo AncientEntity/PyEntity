@@ -1,6 +1,7 @@
 from PyEntity import *
 from PyEntity.PyEntityMain import *
 from PyEntity.modules.Components.BaseComponent import *
+import pygame
 
 
 class PlayerController(BaseComponent):
@@ -24,10 +25,10 @@ class PlayerController(BaseComponent):
                 Globals.mainCamera.position.y -= 1
             if(event == "down"):
                 Globals.mainCamera.position.y += 1
-        if(self.parent.position.y < -225):
-            self.parent.Destroy()
-        if(self.parent.position.y > 220):
-            self.parent.Destroy()
+        #if(self.parent.position.y < -225):
+        #    self.parent.Destroy()
+        #if(self.parent.position.y > 220):
+        #    self.parent.Destroy()
         self.timer -= Globals.deltaTime
         if(self.timer <= 0):
             pipe = Instantiate(basePipe)
@@ -37,10 +38,11 @@ class PlayerController(BaseComponent):
             pipe.position.x = 800
             topPipe.position.y = offset+435
             topPipe.position.x = 800
-            self.timer = 1.5
+            self.timer = 2
         self.DoDeath()
     def DoDeath(self):
         for other in self.GetComponent("Collider2D").collidingWith:
+            print(other.parent.name)
             if(other.parent.tag == "enemy"):
                 self.parent.Destroy()
 
@@ -56,7 +58,7 @@ bird.AddComponent("Collider2D")
 bird.AddComponent("Physics2D")
 bird.AddComponent("Renderer2D")
 bird.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation+"\\assets\\Examples\\flappy.png")
-bird.scale = Vector2(3,3)
+bird.scale = Vector2(2,2)
 
 flappyScene.AddObject(bird)
 
@@ -71,6 +73,8 @@ basePipe.AddComponent("ConstantVelocity")
 basePipe.GetComponent("ConstantVelocity").constantV.x = -0.5
 basePipe.tag = "enemy"
 basePipe.scale = Vector2(2,3)
+basePipe.GetComponent("Collider2D").BoundToImage()
+basePipe.GetComponent("Collider2D").debug = True
 Globals.prefabs.append(basePipe)
 
 gameData = FullGameData()
@@ -78,7 +82,7 @@ gameData.scenes.append(flappyScene)
 gameData.defaultScene = 0
 gameData.name = "PhysicsTest1"
 gameData.screenSize = Vector2(800, 600)
-gameData.gravity = -1.1
+gameData.gravity = -2.2
 
 LaunchGame(gameData)
 

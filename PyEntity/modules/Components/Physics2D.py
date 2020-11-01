@@ -25,7 +25,7 @@ class Physics2D(BaseComponent):
             if(self.parent.GetComponent("Collider2D") != None):
                 #print(self.myCol.collisionTypes)
                 if(self.myCol.collisionTypes['bottom'] == True):
-                    self.velocity.y = MathF.Clamp(self.velocity.y,-500,0)
+                    self.velocity.y = MathF.Clamp(self.velocity.y,-1000,0)
                     #self.rotationVelocity += -self.velocity.x*0.2
                 elif(self.myCol.collisionTypes['top'] == True):
                     self.velocity.y = MathF.Clamp(self.velocity.y,0,500)

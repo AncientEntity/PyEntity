@@ -5,7 +5,6 @@ from PyEntity.modules.Components import BaseComponent
 
 Globals.debugMode = True
 
-
 mainScene = Scene("Main")
 
 
@@ -15,11 +14,11 @@ class PlayerController(BaseComponent.BaseComponent):
         self.name = "PlayerController"
         self.movementSpeed = 1.2
         self.missilePrefab = None
+        self.timer = 0
     def Start(self):
         self.parent.tag = "Player"
     def Update(self):
         for event in Globals.keypressed:
-            #print(event)
             if(event == "w"):
                 self.parent.position.y -= self.movementSpeed
             elif(event == "s"):
@@ -35,6 +34,12 @@ class PlayerController(BaseComponent.BaseComponent):
         c = self.GetComponent("Collider2D").CollidingWithTagOf("missile")
         if(c != None and c.GetComponent("Missile").isPlayers == False):
             self.parent.Destroy()
+        self.timer += 1
+        if(self.timer >= 60):
+            global enemy
+            self.timer = 0
+            m = Instantiate(enemy)
+            m.position = Vector2(random.randint(-400,400),-300)
 
 
 class Missile(BaseComponent.BaseComponent):
@@ -49,10 +54,30 @@ class Missile(BaseComponent.BaseComponent):
         self.parent.position.y -= self.speed
         #print(self.parent.tag)
 
+class Enemy(BaseComponent.BaseComponent):
+    def __init__(self):
+        super().__init__()
+        self.name = "Enemy"
+        self.speed = 1.0
+    def Start(self):
+        self.parent.tag = "enemy"
+    def Update(self):
+        if(self.parent.GetComponent("Collider2D").CollidingWithTagOf("Player") == None):
+            self.parent.GetComponent("Physics2D").velocity.y = 1
+        #self.parent.position.y += self.speed
+
 
 PyEntityMain.RegisterComponent(Missile())
 PyEntityMain.RegisterComponent(PlayerController())
-
+PyEntityMain.RegisterComponent(Enemy())
+enemy = GameObject("Enemy")
+enemy.AddComponent("Enemy")
+enemy.AddComponent("Collider2D")
+enemy.AddComponent("Physics2D")
+enemy.AddComponent("Renderer2D")
+enemy.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation+"\\assets\\apple.png")
+enemy.GetComponent("Collider2D").BoundToImage()
+enemy.scale = Vector2(4,4)
 
 
 
@@ -66,6 +91,7 @@ missile.GetComponent("Collider2D").BoundToImage()
 missile.scale = Vector2(1,2)
 
 apple = GameObject("Apple")
+apple.tag = "Player"
 apple.AddComponent("Renderer2D")
 apple.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation + "\\assets\\apple.png")
 apple.AddComponent("Collider2D")
@@ -97,6 +123,7 @@ gameData.scenes.append(mainScene)
 gameData.defaultScene = 0
 gameData.name = "Space Shooter GOT EM"
 gameData.screenSize = Vector2(800, 600)
+gameData.gravity = 0
 
 LaunchGame(gameData)
 
