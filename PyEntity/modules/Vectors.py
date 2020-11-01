@@ -11,6 +11,8 @@ class Vector2:
         return str(self.x) + "," + str(self.y)
     def __sub__(self, other):
         return Vector2(self.x-other.x,self.y-other.y)
+    def __mul__(self, other):
+        return Vector2(self.x*other.x,self.y*other.y)
 
 class Vector3:
     def __init__(self,x=0,y=0,z=0):

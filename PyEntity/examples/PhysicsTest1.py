@@ -16,12 +16,12 @@ class PlayerController(BaseComponent.BaseComponent):
         for event in Globals.keypressed:
             if(event == "w"):
                 if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
-                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-8.35))
+                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-3))
                     #print("ree")
             if (event == "a"):
-                self.GetComponent("Physics2D").velocity.x -= 0.005
+                self.GetComponent("Physics2D").velocity.x -= 1 * Globals.deltaTime
             elif(event == "d"):
-                self.GetComponent("Physics2D").velocity.x += 0.005
+                self.GetComponent("Physics2D").velocity.x += 1 * Globals.deltaTime
         self.fpsText.text = "FPS: "+str(round(Globals.fps))
 
 
