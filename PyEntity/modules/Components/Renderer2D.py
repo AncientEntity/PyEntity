@@ -15,6 +15,6 @@ class Renderer2D(BaseComponent):
             Globals.renderRequests.append(RenderRequest(self.sprite,self.parent.position,self,self.sortingLayer))
     def ScaleChange(self,old,new):
         self.sprite = Image.ScaleImage(self.sprite,new)
-        #print("Scale updated")
+        #print("Scale updated "+self.parent.name)
     def RotationChange(self,old,new):
         self.sprite = Image.RotateImage(self.sprite,new,self.parent.scale)

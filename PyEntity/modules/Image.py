@@ -23,7 +23,7 @@ def Image(img,override=-1):
 
 def ScaleImage(img, newScale):
     if(isinstance(img,pygame.Surface)):
-        return pygame.transform.scale(img,(img.get_width() * newScale.x,img.get_height() * newScale.y))
+        return pygame.transform.scale(img,(round(img.get_width() * newScale.x),round(img.get_height() * newScale.y)))
     else:
         if(img == None):
             return
@@ -40,4 +40,12 @@ def RotateImage(img, rotation,scale):
     else:
         new = Image(Globals.loadedImageLocations[img],override=img)
         Globals.loadedImages[img] = ScaleImage(pygame.transform.rotate(Globals.loadedImages[new],rotation),scale)
+        return img
+
+def FlipImage(img, xFlip, yFlip, scale):
+    if(isinstance(img,pygame.Surface)):
+        return pygame.transform.flip(img,xFlip,yFlip)
+    else:
+        new = Image(Globals.loadedImageLocations[img],override=img)
+        Globals.loadedImages[img] = ScaleImage(pygame.transform.flip(Globals.loadedImages[new],xFlip,yFlip),scale)
         return img

@@ -2,6 +2,7 @@
 from PyEntity.PyEntityMain import *
 from PyEntity.modules.Scene import *
 from PyEntity.modules.Components import BaseComponent
+from PyEntity.modules.Image import *
 
 Globals.debugMode = True
 
@@ -11,18 +12,21 @@ class PlayerController(BaseComponent.BaseComponent):
         self.name = "PlayerController"
         self.fpsText = None
     def Start(self):
-        self.fpsText = FindGameObjectByTag("FPS").GetComponent("UIText")
+        pass
+        #self.fpsText = FindGameObjectByTag("FPS").GetComponent("UIText")
     def Update(self):
         for event in Globals.keypressed:
             if(event == "w"):
                 if(self.GetComponent("Collider2D").collisionTypes['bottom'] == True):
-                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-3))
+                    self.parent.GetComponent("Physics2D").AddVelocity(Vector2(0,-1.5))
                     #print("ree")
             if (event == "a"):
-                self.GetComponent("Physics2D").velocity.x -= 1 * Globals.deltaTime
+                self.GetComponent("Physics2D").velocity.x -= 2 * Globals.deltaTime
+                FlipImage(self.GetComponent("Renderer2D").sprite,True,False,self.parent.scale)
             elif(event == "d"):
-                self.GetComponent("Physics2D").velocity.x += 1 * Globals.deltaTime
-        self.fpsText.text = "FPS: "+str(round(Globals.fps))
+                FlipImage(self.GetComponent("Renderer2D").sprite, False, False, self.parent.scale)
+                self.GetComponent("Physics2D").velocity.x += 2 * Globals.deltaTime
+        #self.fpsText.text = "FPS: "+str(round(Globals.fps))
 
 
 
@@ -65,24 +69,24 @@ testScene.AddObject(wall2)
 
 apple = GameObject("Apple")
 apple.AddComponent("Renderer2D")
-apple.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation + "\\assets\\apple.png")
+apple.GetComponent("Renderer2D").sprite = Image(Globals.engineLocation + "\\assets\\Examples\\player.png")
+apple.scale = Vector2(0.2,0.2)
 apple.AddComponent("Collider2D")
 apple.AddComponent("Physics2D")
 apple.AddComponent("PlayerController")
-apple.scale = Vector2(3,3)
 apple.GetComponent("Collider2D").BoundToImage()
-apple.position.y = -100
+apple.position.y = -200
 #apple.AddComponent("Camera")
 
 testScene.AddObject(apple)
 
-fpsCounter = GameObject("FPSCounter")
-fpsCounter.tag = "FPS"
-fpsCounter.x = -100
-fpsCounter.AddComponent("UIText")
-fpsCounter.GetComponent("UIText").text = "Test"
-
-testScene.AddObject(fpsCounter)
+#fpsCounter = GameObject("FPSCounter")
+#fpsCounter.tag = "FPS"
+#fpsCounter.x = -100
+#fpsCounter.AddComponent("UIText")
+#fpsCounter.GetComponent("UIText").text = "Test"
+#
+#testScene.AddObject(fpsCounter)
 
 gameData = FullGameData()
 gameData.scenes.append(testScene)

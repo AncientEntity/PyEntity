@@ -33,6 +33,8 @@ def LaunchGame(gameData):
     gameRunning = True
     Globals.screenSize = gameData.screenSize
     Globals.screen = pygame.display.set_mode((Globals.screenSize.x, Globals.screenSize.y))
+    pygame.display.set_caption(gameData.gameName)
+    pygame.display.set_icon(pygame.image.load(gameData.iconFile))
     Globals.gravity = gameData.gravity
     while gameRunning: #The Actual Game Loop
         frameStartTime = time.time()
@@ -62,7 +64,7 @@ class FullGameData:
         self.screenSize = Vector2(800,600)
         self.gravity = -9.8
         self.gameName = "Unnamed Game"
-
+        self.iconFile = Globals.engineLocation+"//assets//apple.png"
 
 def GatherInputs():
     Globals.mousePosition = Vector2(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1])
